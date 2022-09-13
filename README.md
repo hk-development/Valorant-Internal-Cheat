@@ -1,6 +1,6 @@
 ###  Valorant Internal
 ```sh-session
-・NOT FULL SOURCE. Make yourself drivers or buy some from us. We do this so it doesnt get skidded 🤓
+・NOT FULL SOURCE. Make yourself drivers and sln or buy some from us. We do this so it doesnt get skidded 🤓
 ```
 ***
 
