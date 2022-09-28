@@ -41,11 +41,6 @@ public:
 			int darkMode;
 		} MenuSettings;
 	};
-	void AddTab(string name);
-	void AddItem(string name, string* display, int max = 2, int value = 0);
-	void Header(string title) { menuInfo.title = title; }
-	void Render(HWND gwnd);
-	bool IsShown() { return menuInfo.isShown; }
 
 	struct MenuItems {
 		string name;
@@ -73,27 +68,27 @@ private:
 
 	struct MenuTab { string name; int pos; } tabs[8];
 
-	// atualiza índice do item e scroll
+	// atualiza Ã­ndice do item e scroll
 	void Update() { itemInfo.index = 0; scrollInfo.index = 0; }
 
 	// itens e abas
-	int FirstTabIndex() { return tabs[tabInfo.index].pos; }	// primeiro índice da aba
-	int LastTabIndex() { if (tabInfo.num > tabInfo.index + 1) return tabs[tabInfo.index + 1].pos - 1; else return itemInfo.num - 1; }	// último índice da aba
+	int FirstTabIndex() { return tabs[tabInfo.index].pos; }	// primeiro Ã­ndice da aba
+	int LastTabIndex() { if (tabInfo.num > tabInfo.index + 1) return tabs[tabInfo.index + 1].pos - 1; else return itemInfo.num - 1; }	// Ãºltimo Ã­ndice da aba
 	int NumTabItems() { int num = 0; for (int i = this->FirstTabIndex(); i <= this->LastTabIndex(); i++) num++; return num; } // quantidade de itens na aba
 
 	// scroll
 	bool HasScroll() { return (this->NumTabItems() > scrollInfo.num); }	// aba atual possui scroll
-	int NumScrollItems() { return (this->NumTabItems() - scrollInfo.num); }	// quantidade máxima de itens num scroll
-	int NumScrollHideItems() { return (this->HasScroll() ? (this->NumScrollItems() - scrollInfo.index) : 0); }	// quantidade de itens não visíveis
-	int FirstScrollIndex() { return (this->FirstTabIndex() + scrollInfo.index); }	// índice inicial com base no índice do scroll
-	int LastScrollIndex() { return (this->LastTabIndex() - this->NumScrollHideItems()); }	// índice final com base nos itens não visíveis
+	int NumScrollItems() { return (this->NumTabItems() - scrollInfo.num); }	// quantidade mÃ¡xima de itens num scroll
+	int NumScrollHideItems() { return (this->HasScroll() ? (this->NumScrollItems() - scrollInfo.index) : 0); }	// quantidade de itens nÃ£o visÃ­veis
+	int FirstScrollIndex() { return (this->FirstTabIndex() + scrollInfo.index); }	// Ã­ndice inicial com base no Ã­ndice do scroll
+	int LastScrollIndex() { return (this->LastTabIndex() - this->NumScrollHideItems()); }	// Ã­ndice final com base nos itens nÃ£o visÃ­veis
 
 	// cursor
 	bool IsLClicked() { return this->c.isLClicked; }
 	bool IsRClicked() { return this->c.isRClicked; }
 	bool IsHolding() { return this->c.isHolding; }
 
-	// verifica se o cursor está sobre a região determinada
+	// verifica se o cursor estÃ¡ sobre a regiÃ£o determinada
 	bool IsMouseOver(float x, float y, float w, float h)
 	{
 		return (c.pos.x > x && c.pos.x < x + w && c.pos.y > y && c.pos.y < y + h);
