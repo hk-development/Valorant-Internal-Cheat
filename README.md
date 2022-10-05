@@ -24,7 +24,7 @@
 ***
 ###  Contact us.
 
- 💬 Discord ・ https://discord.gg/mHFn33Dajq
+ 💬 Discord ・ https://discord.gg/QHJud6Uvrz
 
  ✈ Telegram ・ https://t.me/hkcheats
 
